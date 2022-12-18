@@ -1,0 +1,10 @@
+FROM
+(SELECT count(cu.customer_id)
+  FROM customer cu
+  LEFT JOIN public.services se on cu.customer_id = se.customer_id
+  WHERE cu.age < 30 and se.internetservice <> 'None') as count1
+
+(SELECT count(cu.customer_id)
+  FROM customer cu
+  LEFT JOIN public.services se on cu.customer_id = se.customer_id
+  WHERE cu.age < 30 and se.phone = 'Yes') as count2
