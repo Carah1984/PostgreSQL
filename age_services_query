@@ -1,0 +1,7 @@
+SELECT cu.customer_id, cu.age, se.internetservice, se.phone
+FROM customer cu
+LEFT JOIN public.services se on cu.customer_id = se.customer_id
+WHERE cu.age <30
+AND
+se.internetservice <> 'None'
+AND se.phone = 'Yes'
